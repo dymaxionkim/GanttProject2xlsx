@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?><project name="Untitled Gantt Project" company="" webLink="http://" view-date="2020-11-22" view-index="0" gantt-divider-location="410" resource-divider-location="300" version="2.8.11" locale="ko_KR">
+    <description/>
+    <view zooming-state="default:7" id="gantt-chart">
+        <field id="tpd3" name="이름" width="217" order="0"/>
+        <field id="tpd4" name="시작일" width="75" order="1"/>
+        <field id="tpd5" name="종료일" width="99" order="2"/>
+        <option id="taskLabelLeft" value="advancement"/>
+    </view>
+    <view id="resource-table">
+        <field id="0" name="이름" width="210" order="0"/>
+        <field id="1" name="기본 역할" width="86" order="1"/>
+    </view>
+    <!-- -->
+    <calendars>
+        <day-types>
+            <day-type id="0"/>
+            <day-type id="1"/>
+            <default-week id="1" name="default" sun="1" mon="0" tue="0" wed="0" thu="0" fri="0" sat="1"/>
+            <only-show-weekends value="false"/>
+            <overriden-day-types/>
+            <days/>
+        </day-types>
+    </calendars>
+    <tasks empty-milestones="true">
+        <taskproperties>
+            <taskproperty id="tpd0" name="type" type="default" valuetype="icon"/>
+            <taskproperty id="tpd1" name="priority" type="default" valuetype="icon"/>
+            <taskproperty id="tpd2" name="info" type="default" valuetype="icon"/>
+            <taskproperty id="tpd3" name="name" type="default" valuetype="text"/>
+            <taskproperty id="tpd4" name="begindate" type="default" valuetype="date"/>
+            <taskproperty id="tpd5" name="enddate" type="default" valuetype="date"/>
+            <taskproperty id="tpd6" name="duration" type="default" valuetype="int"/>
+            <taskproperty id="tpd7" name="completion" type="default" valuetype="int"/>
+            <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
+            <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
+        </taskproperties>
+        <task id="5" name="제품디자인" color="#000000" meeting="false" start="2020-12-01" duration="10" complete="100" expand="true" cost-manual-value="0" cost-calculated="false">
+            <task id="6" name="1차 디자인 시안" color="#8cb6ce" meeting="false" start="2020-12-01" duration="3" complete="100" thirdDate="2020-04-03" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[밑그림 그리기]]>
+                </notes>
+                <depend id="7" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="7" name="2차 디자인 시안" color="#8cb6ce" meeting="false" start="2020-12-04" duration="7" complete="100" thirdDate="2020-12-04" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[디자인 개선안]]>
+                </notes>
+                <depend id="8" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="8" name="(산출물) 디자인 확정안" color="#ff7000" meeting="true" start="2020-12-15" duration="0" complete="100" thirdDate="2020-12-15" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[디자인 확정안 CEO 컨펌]]>
+                </notes>
+                <depend id="10" type="2" difference="0" hardness="Strong"/>
+                <depend id="15" type="2" difference="0" hardness="Strong"/>
+                <depend id="19" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="9" name="회로개발" color="#000000" meeting="false" start="2020-12-15" duration="34" complete="35" thirdDate="2020-12-15" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+            <task id="10" name="아키텍쳐 설계" color="#8cb6ce" meeting="false" start="2020-12-15" duration="5" complete="100" thirdDate="2020-04-03" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[상세사양 도출]]>
+                </notes>
+                <depend id="11" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="11" name="상세설계" color="#8cb6ce" meeting="false" start="2020-12-22" duration="15" complete="50" thirdDate="2020-12-22" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[스키메틱, 거버 파일 작성]]>
+                </notes>
+                <depend id="12" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="12" name="(산출물) 회로도면" color="#ff7000" meeting="true" start="2021-01-12" duration="0" complete="0" thirdDate="2021-01-12" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[회로도 불출]]>
+                </notes>
+                <depend id="13" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="13" name="부품조달" color="#8cb6ce" meeting="false" start="2021-01-12" duration="14" complete="0" thirdDate="2021-01-12" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[PCB제작,부품구매]]>
+                </notes>
+            </task>
+        </task>
+        <task id="14" name="기구개발" color="#000000" meeting="false" start="2020-12-15" duration="33" complete="33" thirdDate="2020-12-15" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+            <task id="15" name="대략설계" color="#8cb6ce" meeting="false" start="2020-12-15" duration="4" complete="100" thirdDate="2020-04-03" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[3D 모델링 마스터 구현]]>
+                </notes>
+                <depend id="16" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="16" name="상세설계" color="#8cb6ce" meeting="false" start="2020-12-21" duration="15" complete="50" thirdDate="2020-12-21" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[상세모델링]]>
+                </notes>
+                <depend id="17" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="17" name="(산출물) 기구도면" color="#ff7000" meeting="true" start="2021-01-11" duration="0" complete="0" thirdDate="2021-01-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[2D 도면 작성]]>
+                </notes>
+                <depend id="18" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="18" name="부품조달" color="#8cb6ce" meeting="false" start="2021-01-11" duration="14" complete="0" thirdDate="2021-01-11" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[가공부품, 구매부품 발주]]>
+                </notes>
+                <depend id="25" type="2" difference="0" hardness="Strong"/>
+            </task>
+        </task>
+        <task id="19" name="소프트웨어개발" color="#000000" meeting="false" start="2020-12-15" duration="55" complete="26" thirdDate="2020-04-03" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+            <task id="20" name="아키텍쳐 설계" color="#8cb6ce" meeting="false" start="2020-12-15" duration="5" complete="100" thirdDate="2020-12-15" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[UML]]>
+                </notes>
+                <depend id="21" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="21" name="구현" color="#8cb6ce" meeting="false" start="2020-12-22" duration="20" complete="50" thirdDate="2020-12-22" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[Coding]]>
+                </notes>
+                <depend id="22" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="22" name="(산출물) 소스코드" color="#ff7000" meeting="true" start="2021-01-19" duration="0" complete="0" thirdDate="2021-01-19" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[Source Code]]>
+                </notes>
+                <depend id="23" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="23" name="디버깅" color="#8cb6ce" meeting="false" start="2021-01-19" duration="30" complete="0" thirdDate="2021-01-19" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[VCS]]>
+                </notes>
+            </task>
+        </task>
+        <task id="24" name="조립 및 테스트" color="#8cb6ce" meeting="false" start="2021-01-29" duration="70" complete="0" thirdDate="2021-01-29" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+            <task id="25" name="1차 조립 및 테스트" color="#8cb6ce" meeting="false" start="2021-01-29" duration="7" complete="0" thirdDate="2021-01-29" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[기본 기능 작동 여부 체크]]>
+                </notes>
+                <depend id="26" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="26" name="(산출물) 시제품" color="#ff7000" meeting="true" start="2021-02-09" duration="0" complete="0" expand="true" cost-manual-value="0" cost-calculated="false">
+                <depend id="27" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="27" name="1차 수정보완" color="#8cb6ce" meeting="false" start="2021-02-09" duration="14" complete="0" thirdDate="2021-02-09" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[오류 수정]]>
+                </notes>
+                <depend id="28" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="28" name="2차 조립 및 테스트" color="#8cb6ce" meeting="false" start="2021-03-01" duration="15" complete="0" thirdDate="2021-03-01" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[미구현 기능 보완]]>
+                </notes>
+                <depend id="29" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="29" name="2차 수정보완" color="#8cb6ce" meeting="false" start="2021-03-22" duration="14" complete="0" thirdDate="2021-03-22" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[오류 수정]]>
+                </notes>
+                <depend id="30" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="30" name="(산출물) 결과보고서" color="#ff7000" meeting="true" start="2021-04-09" duration="0" complete="0" thirdDate="2021-04-09" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[결과보고서 작성]]>
+                </notes>
+                <depend id="31" type="2" difference="0" hardness="Strong"/>
+            </task>
+            <task id="31" name="현장 운용 테스트" color="#8cb6ce" meeting="false" start="2021-04-09" duration="20" complete="0" thirdDate="2021-04-09" thirdDate-constraint="0" expand="true" cost-manual-value="0.0" cost-calculated="false">
+                <notes>
+                    <![CDATA[시범서비스 실시]]>
+                </notes>
+            </task>
+        </task>
+    </tasks>
+    <resources>
+        <resource id="0" name="홍길동" function="Default:0" contacts="" phone=""/>
+        <resource id="1" name="잔나비" function="Default:0" contacts="" phone=""/>
+        <resource id="2" name="코로나" function="Default:0" contacts="" phone=""/>
+    </resources>
+    <allocations>
+        <allocation task-id="6" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="7" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="8" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="19" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="20" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="21" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="22" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="23" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="24" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="28" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="30" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="31" resource-id="0" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="9" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="12" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="13" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="10" resource-id="1" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="14" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="15" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="16" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="17" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="18" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="25" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="27" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+        <allocation task-id="29" resource-id="2" function="Default:0" responsible="true" load="100.0"/>
+    </allocations>
+    <vacations/>
+    <previous/>
+    <roles roleset-name="Default"/>
+    <roles roleset-name="SoftwareDevelopment"/>
+</project>
