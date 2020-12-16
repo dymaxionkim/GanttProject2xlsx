@@ -4,7 +4,6 @@
         <field id="tpd3" name="이름" width="217" order="0"/>
         <field id="tpd4" name="시작일" width="75" order="1"/>
         <field id="tpd5" name="종료일" width="99" order="2"/>
-        <option id="taskLabelLeft" value="advancement"/>
     </view>
     <view id="resource-table">
         <field id="0" name="이름" width="210" order="0"/>
