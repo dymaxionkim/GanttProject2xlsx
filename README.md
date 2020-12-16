@@ -18,8 +18,8 @@ _Automake Spreadsheet Report from GanttProject_
 ## Prerequisites
 
 * Linux
-* [GanttProject](https://www.ganttproject.biz/) with [setting_01](setting_01.png), [setting_02](setting_02.png)
-* Python3 with Pandas, datetime, openpyxl
+* [GanttProject](https://www.ganttproject.biz/) ([setting_01](setting_01.png), [setting_02](setting_02.png))
+* Python3 with Pandas, datetime, openpyxl  (Fix execution path in `gantt.sh`)
 * Libreoffice (to export pdf)
 
 
