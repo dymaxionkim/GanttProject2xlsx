@@ -38,7 +38,7 @@ for j in range(gantt3_index):
         gantt3[i][j] = 0
         STARTDAY = datetime.strptime(gantt2.시작일[j],'%Y-%m-%d')
         ENDDAY = datetime.strptime(gantt2.종료일[j],'%Y-%m-%d')
-        THIS_DAY = TODAY+timedelta(days=WEEKTODAY+i-11)
+        THIS_DAY = TODAY+timedelta(days=i-(WEEKTODAY+7))
         BEFORE_DAYS = int((STARTDAY-THIS_DAY).days)
         LAST_DAYS = int((ENDDAY-THIS_DAY).days)+1
         if BEFORE_DAYS<0 and LAST_DAYS>=0:
@@ -58,7 +58,7 @@ from openpyxl.worksheet.properties import WorksheetProperties, PageSetupProperti
 # New Book
 book = Workbook()
 sheet = book.active
-sheet.title = "Report"
+sheet.title = "일일업무보고"
 
 # Copy DataFrame to Sheet
 rows = dataframe_to_rows(gantt4)
@@ -85,10 +85,10 @@ for temp in ['K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','AA
 for i in list(range(1,sheet.max_column+1)):
     for j in list(range(1,sheet.max_row+1)):
         sheet.cell(column=i,row=j).alignment = openpyxl.styles.Alignment(horizontal='center',vertical='center')
-for i in [1]:
+for i in [1,2]:
     for j in list(range(1,sheet.max_row+1)):
         sheet.cell(column=i,row=j).alignment = openpyxl.styles.Alignment(horizontal='right',vertical='center')
-for i in [2,3,9]:
+for i in [3,9]:
     for j in list(range(1,sheet.max_row+1)):
         sheet.cell(column=i,row=j).alignment = openpyxl.styles.Alignment(horizontal='left',vertical='center')
 for i in list(range(1,sheet.max_column+1)):
@@ -118,7 +118,7 @@ WEEKNAME = ['월','화','수','목','금','토','일']
 for i in list(range(1,sheet.max_column+1)):
     sheet.cell(column=i,row=1).value = ""
     sheet.cell(column=i,row=1).font = openpyxl.styles.fonts.Font(bold=True)
-sheet.cell(column=2,row=1).value = datetime.today().strftime("%Y-%m-%d") + " (" + WEEKNAME[WEEKTODAY] + ") " + "업무현황_요약보고"
+sheet.cell(column=2,row=1).value = datetime.today().strftime("%Y-%m-%d") + " (" + WEEKNAME[WEEKTODAY] + ") " + "기구팀_업무현황_요약보고"
 
 # Subjects
 SUBJECTS = ['','번호','목표업무','담당자','시작일','종료일','진행일수','남은날짜','노트','진행률','월','화','수','목','금','토','일','월','화','수','목','금','토','일','월','화','수','목','금','토','일']
@@ -150,10 +150,12 @@ for i in list(range(sheet.max_column-21)):
 # Gantt
 START_COLUMN = 11
 START_ROW = 3
+END_COLUMN = sheet.max_column+1
+END_ROW = sheet.max_row+1
 WEEKTODAY_COLUMN = WEEKTODAY+18
 sheet.cell(column=WEEKTODAY_COLUMN,row=2).fill = PatternFill(start_color=GANTT_TODAY_COLOR,end_color=GANTT_TODAY_COLOR,fill_type='solid')
-for i in list(range(START_COLUMN,sheet.max_column+1)):
-    for j in list(range(START_ROW,sheet.max_row+1)):
+for i in list(range(START_COLUMN,END_COLUMN)):
+    for j in list(range(START_ROW,END_ROW)):
         # 작업일 색상 강조
         if sheet.cell(column=i,row=j).value==1:
             sheet.cell(column=i,row=j).fill = PatternFill(start_color=GANTT_COLOR,end_color=GANTT_COLOR,fill_type='solid')
@@ -167,13 +169,13 @@ for i in list(range(START_COLUMN,sheet.max_column+1)):
                 sheet.cell(column=i,row=j).fill = PatternFill(start_color=GANTT_DELAYED_COLOR,end_color=GANTT_DELAYED_COLOR,fill_type='solid')
                 
 # Gantt Font Size
-for i in list(range(START_COLUMN,sheet.max_column+1)):
-    for j in list(range(START_ROW,sheet.max_row+1)):
+for i in list(range(START_COLUMN,END_COLUMN)):
+    for j in list(range(START_ROW,END_ROW)):
         sheet.cell(column=i,row=j).font = Font(size=8)
         
 # Gantt 진행률
-for i in list(range(START_COLUMN,sheet.max_column+1)):
-    for j in list(range(START_ROW,sheet.max_row+1)):
+for i in list(range(START_COLUMN,END_COLUMN)):
+    for j in list(range(START_ROW,END_ROW)):
         if sheet.cell(column=10,row=j).value==100 and sheet.cell(column=i,row=j).value==1:
             # 완료된 작업 100 표기
             if sheet.cell(column=i+1,row=j).value==0:
@@ -193,17 +195,17 @@ for i in list(range(START_COLUMN,sheet.max_column+1)):
             
 # Finished Tasks
 for i in list(range(1,START_COLUMN-1)):
-    for j in list(range(START_ROW,sheet.max_row+1)):
+    for j in list(range(START_ROW,END_ROW)):
         if sheet.cell(column=10,row=j).value==100 and float(sheet.cell(column=2,row=j).value)%1!=0:
             if sheet.cell(column=8,row=j).value!=-1:
                 sheet.cell(column=i,row=j).font = Font(color=FINISHED_FONT_COLOR)
             
 # Gantt Remove Flag
-for i in list(range(START_COLUMN,sheet.max_column+1)):
-    for j in list(range(START_ROW,sheet.max_row+1)):
+for i in list(range(START_COLUMN,END_COLUMN)):
+    for j in list(range(START_ROW,END_ROW)):
         if sheet.cell(column=i,row=j).value==0 or sheet.cell(column=i,row=j).value==1:
             sheet.cell(column=i,row=j).value=""
-            
+
 # Folding column
 sheet.column_dimensions['A'].hidden = True
 sheet.column_dimensions['E'].hidden = True
@@ -211,7 +213,7 @@ sheet.column_dimensions['G'].hidden = True
 sheet.column_dimensions['J'].hidden = True
 
 # Folding rows passing out from today
-for j in list(range(START_ROW,sheet.max_row+1)):
+for j in list(range(START_ROW,END_ROW)):
     # 100% 완료된 작업들
     if sheet.cell(column=10,row=j).value==100: 
         sheet.row_dimensions[j].hidden = True
@@ -227,7 +229,13 @@ for j in list(range(START_ROW,sheet.max_row+1)):
         # 프로젝트 제목은 살려주기
         if float(sheet.cell(column=2,row=j).value)%1==0:
             sheet.row_dimensions[j].hidden = False
-            
+
+# Change 번호
+for j in list(range(START_ROW,END_ROW)):
+    if sheet.cell(column=2,row=j).value%1!=0:
+        #sheet.cell(column=2,row=j).value = str(sheet.cell(column=2,row=j).value)
+        sheet.cell(column=2,row=j).value = "-"
+
 # 범례
 REMARK_CULUMN = 11
 REMARK_ROW = sheet.max_row+2
@@ -271,6 +279,7 @@ sheet.cell(column=REMARK_CULUMN+4*REMARK_SPACE,row=REMARK_ROW).value = "완"
 sheet.cell(column=REMARK_CULUMN+4*REMARK_SPACE+1,row=REMARK_ROW).value = "완료작업"
 
 # Sheet Page Settup
+sheet.title = '기구팀'
 sheet.page_setup.orientation = sheet.ORIENTATION_LANDSCAPE
 sheet.page_setup.scale = 68
 sheet.page_setup.fitToWidth = 1
